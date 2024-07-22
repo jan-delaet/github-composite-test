@@ -1,0 +1,8 @@
+name: Say Hello
+description: Say hello to the world
+runs:
+  using: composite
+  steps:
+    - name: Say Hello
+      shell: pwsh
+      run: Write-Host "Hello, world!"

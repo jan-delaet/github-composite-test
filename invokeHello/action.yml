@@ -1,0 +1,7 @@
+name: Invoke Hello
+description: Invoke the sayHello action
+runs:
+  using: composite
+  steps:
+    - name: Invoke Hello
+      uses: jan-delaet/github-composite-test/sayHello@main
