@@ -1,8 +1,17 @@
 name: Say Hello
 description: Say hello to the world
+inputs:
+  test-input:
+    description: "Test input"
+    required: true
+    default: "This is a test"
 runs:
   using: composite
   steps:
     - name: Say Hello
       shell: pwsh
       run: Write-Host "Hello, world!"
+    - name: Say test input
+      shell: pwsh
+      run: |
+        Write-Host "Test input: ${{inputs.test-input}}"

@@ -1,7 +1,14 @@
 name: Invoke Hello
 description: Invoke the sayHello action
+inputs:
+  test-input:
+    description: "Test input"
+    required: true
+    default: "This is a test"
 runs:
   using: composite
   steps:
     - name: Invoke Hello
       uses: jan-delaet/github-composite-test/sayHello@main
+      with:
+        test-input: ${{inputs.test-input}}
