@@ -1,0 +1,16 @@
+name: Call parent script
+description: Call a script in a parent directory
+inputs:
+  name:
+    description: "Name"
+    required: true
+    default: "Jeff"
+runs:
+  using: composite
+  steps:
+    - name: Say Hello
+      shell: pwsh
+      run: Write-Host "Hello, world!"
+    - name: Say test input
+      shell: pwsh
+      run: ../scripts/test.ps1 ${{ inputs.name }}
