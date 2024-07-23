@@ -8,9 +8,6 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Say Hello
+    - name: Call parent script
       shell: pwsh
-      run: Write-Host "Hello, world!"
-    - name: Say test input
-      shell: pwsh
-      run: ../scripts/test.ps1 ${{ inputs.name }}
+      run: ${{ github.action_path }}/scripts/test.ps1 ${{ inputs.name }}
