@@ -9,6 +9,7 @@ runs:
   using: composite
   steps:
     - name: Inspect directory
+      shell: bash
       run: |
         ls -la
         pwd
