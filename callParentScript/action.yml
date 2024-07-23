@@ -8,6 +8,12 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Inspect directory
+      run: |
+        ls -la
+        pwd
+        ls ../ -la
     - name: Call parent script
       shell: pwsh
-      run: ${{ github.action_path }}/scripts/test.ps1 ${{ inputs.name }}
+      working-directory: ${{ github.action_path }}
+      run: ../scripts/test.ps1 ${{ inputs.name }}
