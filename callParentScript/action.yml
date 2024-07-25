@@ -22,9 +22,9 @@ runs:
       shell: pwsh
       id: test-output
       run: |
-        Write-Output "skip-assignment=$false" >> $env:GITHUB_OUTPUT
+        Write-Output "assignment-needed=$true" >> $env:GITHUB_OUTPUT
     - name: Test conditional step
-      if: steps.test-output.outputs.skip-assignment != 'false'
+      if: steps.test-output.outputs.assignment-needed == 'true'
       shell: pwsh
       run: |
         Write-Output "Assignment not skipped!"
