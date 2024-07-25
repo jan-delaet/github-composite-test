@@ -18,3 +18,13 @@ runs:
       shell: pwsh
       working-directory: ${{ github.action_path }}
       run: ../scripts/test.ps1 ${{ inputs.name }}
+    - name: Test boolean output
+      shell: pwsh
+      id: test-output
+      run: |
+        Write-Output "skip-assignment=$false" >> $env:GITHUB_OUTPUT
+    - name: Test conditional step
+      if: steps.test-output.outputs.skip-assignment != 'false'
+      shell: pwsh
+      run: |
+        Write-Output "Assignment not skipped!"
