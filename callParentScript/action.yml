@@ -24,7 +24,7 @@ runs:
       run: |
         Write-Output "assignment-needed=$true" >> $env:GITHUB_OUTPUT
     - name: Test conditional step
-      if: steps.test-output.outputs.assignment-needed == "true"
+      if: steps.test-output.outputs.assignment-needed == 'true'
       shell: pwsh
       run: |
         Write-Output "Assignment not skipped!"
